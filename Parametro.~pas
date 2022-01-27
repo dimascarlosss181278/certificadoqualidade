@@ -1,0 +1,44 @@
+unit Parametro;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Buttons, StdCtrls, ExtDlgs;
+
+type
+  TParamet = class(TForm)
+    EditCam: TEdit;
+    BitBtnSair: TBitBtn;
+    SpeedButton1: TSpeedButton;
+    BitBtnGravar: TBitBtn;
+    OpenPictureDialog1: TOpenPictureDialog;
+    Label1: TLabel;
+    procedure BitBtnGravarClick(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Paramet: TParamet;
+
+implementation
+
+{$R *.dfm}
+
+procedure TParamet.BitBtnGravarClick(Sender: TObject);
+begin
+  close;
+end;
+
+procedure TParamet.SpeedButton1Click(Sender: TObject);
+begin
+  If OpenPictureDialog1.execute then
+    EditCam.text := OpenPictureDialog1.FileName;
+    BitBtnGravar.SetFocus;
+end;
+
+end.
